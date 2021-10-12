@@ -1,4 +1,33 @@
-<p>listado works!</p>
-<ul *ngFor="let item of heroe">
-    {{item.superhero}}
-</ul>
+<h1>Listado de Héroes</h1>
+<mat-divider></mat-divider>
+<br>
+<div fxLayout="row wrap">
+    <div fxFlex="20">
+
+        <mat-card *ngFor="let i of heroe">
+            <mat-card-header>
+                <mat-card-title>{{ i.superhero }}</mat-card-title>
+                <mat-card-subtitle>{{ i.alter_ego }}</mat-card-subtitle>       
+            </mat-card-header>
+            <img mat-card-image src="assets/heroes/{{ i.id}}.jpg">
+            <mat-card-content>
+                <h3>{{ i.publisher}}</h3>
+                <p>
+                    <strong>Primera aparición: </strong>{{i.first_appearance}}
+                    <br>
+                    <strong>Personajes: </strong>{{i.characters}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="warn">
+                    Leer más...
+                </button>
+                <button mat-button color="accent">
+                    Editar
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+</div>
+
