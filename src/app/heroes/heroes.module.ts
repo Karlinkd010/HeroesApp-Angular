@@ -10,13 +10,15 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { HeroesRoutingModule } from './heroes-routing.module';
+import { HeroesTarjetaComponent } from './components/heroes-tarjeta/heroes-tarjeta.component';
 @NgModule({
   declarations: [
     AgregarComponent,
     BuscarComponent,
     HeroeComponent,
     HomeComponent,
-    ListadoComponent
+    ListadoComponent,
+    HeroesTarjetaComponent
   ],
   imports: [
     CommonModule,
