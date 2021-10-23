@@ -3,7 +3,7 @@
         <mat-card-title>{{ heroe.superhero }}</mat-card-title>
         <mat-card-subtitle>{{ heroe.alter_ego }}</mat-card-subtitle>       
     </mat-card-header>
-    <img mat-card-image src="assets/heroes/{{ heroe.id}}.jpg">
+    <img mat-card-image [src]="heroe | imagen">
     <mat-card-content>
         <h3>{{ heroe.publisher}}</h3>
         <p>
