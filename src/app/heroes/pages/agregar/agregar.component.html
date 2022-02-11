@@ -2,12 +2,16 @@
 
 <div fxLayout="row" fxLayoutGap="40px">
     <div fxFlex="50" fxLayout="column">
-        <div fxLayout="row" fxLayoutGap="10px">
+        <div fxLayout="row" 
+        fxLayout.xs="column" 
+        fxLayoutGap="20px"
+        fxLayoutGap.xs="column">
             <mat-form-field fxFlex="100">
                 <mat-label>Super Héroe</mat-label>
                 <input  matInput
                         type="text"
                         required
+                        [(ngModel)]="heroe.superhero"
                         placeholder="Super Héroe">
             </mat-form-field>
     
@@ -16,6 +20,7 @@
                 <input  matInput 
                         type="text"
                         required
+                        [(ngModel)]="heroe.alter_ego"
                         placeholder="Alter Ego">
             </mat-form-field>
         </div>
@@ -26,6 +31,7 @@
             <input matInput
                    type="text"
                    required
+                   [(ngModel)]="heroe.first_appearance"
                    placeholder="Primera Aparición">
         </mat-form-field>
 
@@ -34,12 +40,15 @@
             <input matInput
                    type="text"
                    required
+                   [(ngModel)]="heroe.characters"
                    placeholder="Personajes">
         </mat-form-field>
 
         <mat-form-field fxFlex="100">
             <mat-label>Creador</mat-label>
-            <mat-select>
+            <mat-select 
+            [(ngModel)]="heroe.publisher"
+            required>
                 <mat-option *ngFor="let data of publishers" [value]="data.id">
                   {{data.desc}}
                 </mat-option>
@@ -51,10 +60,14 @@
             <input matInput
                    type="url"
                    required
+                   [(ngModel)]="heroe.alt_img"
                    placeholder="Foto">
         </mat-form-field>
 
-        <button mat-raised-button color="primary">
+        <button mat-raised-button 
+        color="primary"
+        (click)="guardar()"
+        >
             <mat-icon>add</mat-icon>
             Agregar
         </button>

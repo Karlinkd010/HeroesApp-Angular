@@ -8,6 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [],
   exports: [
@@ -19,7 +20,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatCardModule,
     MatInputModule ,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
     
   ]
 })

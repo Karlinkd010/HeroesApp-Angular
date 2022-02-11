@@ -33,5 +33,8 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  guardar(){
+    console.log(this.heroe);
+  }
 
 }
