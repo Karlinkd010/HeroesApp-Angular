@@ -12,7 +12,7 @@ export class ImagenPipe implements PipeTransform {
 
     }else if(heroe.alt_img){
       return heroe.alt_img;
-      
+
     }else{
       return `assets/heroes/${heroe.id}.jpg `;
     }

@@ -63,7 +63,7 @@
                    [(ngModel)]="heroe.alt_img"
                    placeholder="Foto">
         </mat-form-field>
-
+        
         <button mat-raised-button 
         color="primary"
         (click)="guardar()"
@@ -71,6 +71,20 @@
             <mat-icon>{{icon}}</mat-icon>
             {{accion}}
         </button>
+
+        <br>
+        
+        <button mat-raised-button  *ngIf=" heroe.id "
+        color="warn"
+        (click)="eliminar()"
+        >
+            <mat-icon>delete</mat-icon>
+            Eliminar
+        </button>
+
+     
+
+       
 
     </div>
     <div  fxFlex="50" >
