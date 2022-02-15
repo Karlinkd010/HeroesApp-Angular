@@ -1,4 +1,4 @@
-<h1>Nuevo Héroe <small>sbd</small></h1>
+<h1>{{accion}} Héroe <small>{{heroe.superhero}}</small></h1>
 
 <div fxLayout="row" fxLayoutGap="40px">
     <div fxFlex="50" fxLayout="column">
@@ -26,7 +26,7 @@
         </div>
         
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Primera Aparición</mat-label>
             <input matInput
                    type="text"
@@ -35,7 +35,7 @@
                    placeholder="Primera Aparición">
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Personajes</mat-label>
             <input matInput
                    type="text"
@@ -44,7 +44,7 @@
                    placeholder="Personajes">
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Creador</mat-label>
             <mat-select 
             [(ngModel)]="heroe.publisher"
@@ -55,7 +55,7 @@
               </mat-select> 
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Foto</mat-label>
             <input matInput
                    type="url"
@@ -68,12 +68,12 @@
         color="primary"
         (click)="guardar()"
         >
-            <mat-icon>add</mat-icon>
-            Agregar
+            <mat-icon>{{icon}}</mat-icon>
+            {{accion}}
         </button>
 
     </div>
-    <div div fxFlex="50">
+    <div  fxFlex="50" >
         <img  [src]="heroe | imagen">
 
     </div>
