@@ -3,6 +3,7 @@ import { Heroes, Publisher } from '../../interfaces/heroes.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from "rxjs/operators";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-agregar',
@@ -21,7 +22,8 @@ export class AgregarComponent implements OnInit {
   constructor(
     private heroeService: HeroesService,
     private activateRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) { }
 
   publishers =[
@@ -68,16 +70,17 @@ export class AgregarComponent implements OnInit {
     }
     if(this.heroe.id){
       this.heroeService.updateHeroe(this.heroe)
-        .subscribe(heroe=>
-          this.router.navigate(['/heroes/listado'])
-
+        .subscribe(heroe=>{
+          this.mensaje('Registro actualizado correctamente');
+          this.router.navigate(['/heroes/listado']);
+        }         
       )
 
     }else{
       this.heroeService.addHeroe(this.heroe)
         .subscribe(resp=>{
-          console.log("Guardado...",resp);
-          this.router.navigate(['/heroes/listado'])
+          this.mensaje('Registro guardado correctamente');
+          this.router.navigate(['/heroes/listado']);
       })
     }
     
@@ -86,8 +89,16 @@ export class AgregarComponent implements OnInit {
   eliminar(){
     this.heroeService.deleteHeroe(this.heroe.id!)
       .subscribe(resp=>{
+        this.mensaje('Registro eliminado correctamente!');
         this.router.navigate(['/heroes/listado'])
       })
+  }
+
+  mensaje(mensaje:string){
+    this._snackBar.open(mensaje, 'Ok!',
+    {
+      duration:2500
+    })
   }
 
 
