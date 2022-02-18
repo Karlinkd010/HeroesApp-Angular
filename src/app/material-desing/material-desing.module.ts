@@ -13,10 +13,12 @@ import { MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatGridListModule} from '@angular/material/grid-list';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
   exports: [
+    MatDialogModule,
     MatSidenavModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,

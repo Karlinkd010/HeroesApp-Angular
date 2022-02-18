@@ -4,6 +4,7 @@ import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from "rxjs/operators";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-agregar',
@@ -23,7 +24,8 @@ export class AgregarComponent implements OnInit {
     private heroeService: HeroesService,
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _dialog: MatDialog
   ) { }
 
   publishers =[
@@ -87,6 +89,7 @@ export class AgregarComponent implements OnInit {
   }
 
   eliminar(){
+    
     this.heroeService.deleteHeroe(this.heroe.id!)
       .subscribe(resp=>{
         this.mensaje('Registro eliminado correctamente!');
