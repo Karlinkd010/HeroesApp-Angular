@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from "rxjs/operators";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatDialog} from '@angular/material/dialog';
+import { ConfirmComponent } from '../../components/confirm/confirm.component';
 
 @Component({
   selector: 'app-agregar',
@@ -89,12 +90,24 @@ export class AgregarComponent implements OnInit {
   }
 
   eliminar(){
+    const dialog_msj =this._dialog.open(ConfirmComponent,{
+      width:'250px',
+      data: this.heroe
+    });
+
+    dialog_msj.afterClosed().subscribe(
+      (result)=>{
+        console.log(result);
+        if(result){
+          this.heroeService.deleteHeroe(this.heroe.id!)
+            .subscribe(resp=>{
+              this.mensaje('Registro eliminado correctamente!');
+              this.router.navigate(['/heroes/listado'])
+            });
+        }
+      }
+    )
     
-    this.heroeService.deleteHeroe(this.heroe.id!)
-      .subscribe(resp=>{
-        this.mensaje('Registro eliminado correctamente!');
-        this.router.navigate(['/heroes/listado'])
-      })
   }
 
   mensaje(mensaje:string){
