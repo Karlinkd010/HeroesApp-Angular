@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +10,26 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent{
 
+  auth!:AuthService;
+
   constructor(
-    private router:Router
+    private router:Router,
+    private authService:AuthService
   ) { }
 
   login(){
+    this.authService.login()
+      .subscribe(resp=>{
+        // this.auth=res;
+        console.log(resp);
 
-    this.router.navigate(['./heroes']);
-
+        if(resp!=null){
+          this.router.navigate(['./heroes']);
+        }
+        
+      })
+    // 
   }
+  
 
 }
