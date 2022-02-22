@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '../../interfaces/auth.interface';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -10,20 +11,18 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent{
 
-  auth!:AuthService;
+  auth!:Auth;
 
   constructor(
     private router:Router,
-    private authService:AuthService
+    private authSegervice:AuthService
   ) { }
 
   login(){
-    this.authService.login()
-      .subscribe(resp=>{
-        // this.auth=res;
-        console.log(resp);
-
-        if(resp!=null){
+    this.authSegervice.login()
+      .subscribe(_auth=>{
+        if(_auth.id){
+          this.auth=_auth;
           this.router.navigate(['./heroes']);
         }
         
