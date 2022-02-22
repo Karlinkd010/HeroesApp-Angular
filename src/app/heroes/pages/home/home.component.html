@@ -41,9 +41,13 @@
             </mat-icon>
         </button>
         <span class="spacer"></span>
-        <span>{{auth.usuario}}</span>
+        <button mat-button>
+            <mat-icon mat-list-icon>account_circle</mat-icon>
+            {{auth.usuario}}
+        </button>
         <button mat-button 
             (click)="logout()">
+            <mat-icon mat-list-icon>logout</mat-icon>
             Loguot
         </button>
     </mat-toolbar>

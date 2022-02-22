@@ -21,6 +21,8 @@ export class LoginComponent{
   login(){
     this.authSegervice.login()
       .subscribe(_auth=>{
+      console.log(_auth);
+        
         if(_auth.id){
           this.auth=_auth;
           this.router.navigate(['./heroes']);
